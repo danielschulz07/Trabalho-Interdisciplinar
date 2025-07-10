@@ -1,55 +1,16 @@
+const inBuscarRaca = document.getElementById("inBuscarRaca");
+const inAnoInicioLactacao = document.getElementById("inAnoInicioLactacao");
+const inVolumeTotalProduzido = document.getElementById("inVolumeTotalProduzido");
 const btFiltro = document.getElementById("btFiltro");
-const inBuscarNome = document.getElementById("inBuscarNome");
 const outSaida = document.getElementById("outSaida");
-
-btFiltro.addEventListener('click', function () {
-    let raca = inBuscarNome.value;
-    let stringRaca = "";
-
-    for (let i = 0; i < vetRaca.length; i++) {
-        if(vetRaca[i].toUpperCase().includes(raca.toUpperCase())) {
-            stringRaca += vetRaca[i] + ", ";
-        }
-    }
-    outSaida.innerHTML = stringRaca.slice(0, -2);
-})
-
-
-
-//Aprimorar o filtro, deixando igual a tabela
-// quando mostrar o nome da vaca podera mostrar qual é o id dessa vaca
-
-
-
-
-
-
-//Filtro por “Raça”, em que o usuário pode digitar uma raça, e a listagem de vacas é atualizada, mostrando apenas os animais da raça informada pelo usuário.
-//Filtro por “Ano de Início de Lactação”, em que o usuário pode digitar um determinado ano, e a listagem de vacas é atualizada, mostrando apenas os animais com lactação iniciada a partir daquele ano.
-//Filtro por “Volume Total Produzido”, em que o usuário pode digitar o valor mínimo, o valor máximo ou ambos, e a listagem de vacas é atualizada, mostrando apenas os animais que apresentaram um total produzido dentro da faixa de valores indicada (baseado no dado calculado de Total Produzido).
-//Um relatório mostrando a vaca com maior volume de leite produzido (baseado no dado calculado de Total Produzido) de uma raça informada pelo usuário.
-
-
-
-//Desafio: Tente desenvolver um relatório que apresente a vaca com maior volume de leite produzido (baseado no dado calculado de Total Produzido) de cada raça.
-
-
-
-
 
 const btMostrarTabela = document.getElementById("btMostrarTabela");
 
 btMostrarTabela.addEventListener('click', function () {
 
-
-
     if (document.querySelector('table')) {
         alert('tabela ja criada')
     } else {
-
-
-
-        //vou ter que criar um verificação para n criar varias tabelas
 
         const tabela = document.createElement('table');
         const cabecalho = document.createElement('tr');
@@ -68,6 +29,8 @@ btMostrarTabela.addEventListener('click', function () {
 
         for (let i = 0; i < vetIDAnimal.length; i++) {
             let producaoTotal = vetLitrosPorDia[i] * vetDiasLactacao[i];
+            let producaoMedia = producaoTotal / vetDiasLactacao[i];
+
             const tr = document.createElement('tr');
 
             const tdIDRaca = document.createElement('td');
@@ -79,13 +42,12 @@ btMostrarTabela.addEventListener('click', function () {
             tr.appendChild(tdRaca);
 
             const tdProducaoMedia = document.createElement('td');
-            tdProducaoMedia.textContent = vetLitrosPorDia[i];
+            tdProducaoMedia.textContent = producaoMedia.toFixed(1);
             tr.appendChild(tdProducaoMedia);
 
             const tdDiasLactacao = document.createElement('td');
             tdDiasLactacao.textContent = vetDiasLactacao[i];
             tr.appendChild(tdDiasLactacao);
-
 
             const tdDataInicio = document.createElement('td');
             tdDataInicio.textContent = vetDataInicio[i];
@@ -100,3 +62,64 @@ btMostrarTabela.addEventListener('click', function () {
         document.body.appendChild(tabela);
     }
 })
+
+
+
+
+btFiltro.addEventListener('click', function () {
+    let raca = inBuscarRaca.value;
+    let stringRaca = "";
+
+    let inicioLactacao = new Date(inAnoInicioLactacao.value + "T00.00.00",);
+    let dataConvertida = inicioLactacao.toLocaleDateString("pt-BR")
+
+    console.log(inicioLactacao)
+
+
+
+    let stringAnoLactacao = "";
+
+
+    // fazer verificação pros tres campus
+  //  if (inBuscarRaca.value == "" || inAnoInicioLactacao.value == "" || inVolumeTotalProduzido.value == "") {
+ //       outSaida.innerHTML = "Insira valores em todos os campus para poder filtrar";
+ //   } else {
+
+
+      //  for (let i = 0; i < vetRaca.length; i++) {
+        //    if (vetRaca[i].toUpperCase().includes(raca.toUpperCase())) {
+      //          stringRaca += vetRaca[i] + ", ";
+       //     }
+     //   }
+
+
+        for (let i = 0; i < vetDataInicio.length; i++) {
+
+            if (vetDataInicio[i] >= dataConvertida) {
+
+                stringAnoLactacao += vetDataInicio[i] + "<br>";
+            }
+
+
+        }
+
+        outSaida.innerHTML = stringRaca.slice(0, -2) + "<br>" + stringAnoLactacao;
+  //  }
+
+})
+
+
+
+//Aprimorar o filtro, deixando igual a tabela
+// quando mostrar o nome da vaca podera mostrar qual é o id dessa vaca
+
+
+
+
+//Filtro por “Ano de Início de Lactação”, em que o usuário pode digitar um determinado ano, e a listagem de vacas é atualizada, 
+//mostrando apenas os animais com lactação iniciada a partir daquele ano.
+
+
+//Filtro por “Volume Total Produzido”, em que o usuário pode digitar o valor mínimo, o valor máximo ou ambos,
+//  e a listagem de vacas é atualizada, mostrando apenas os animais que apresentaram um total produzido dentro da faixa de valores indicada 
+// (baseado no dado calculado de Total Produzido).
