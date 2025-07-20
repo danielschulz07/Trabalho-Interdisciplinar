@@ -28,7 +28,7 @@ btMostrarTabela.addEventListener('click', function () {
         }
 
         for (let i = 0; i < vetIDAnimal.length; i++) {
-            let producaoTotal = vetLitrosPorDia[i] * vetDiasLactacao[i];
+            const producaoTotal = vetLitrosPorDia[i] * vetDiasLactacao[i];
             let producaoMedia = producaoTotal / vetDiasLactacao[i];
 
             const tr = document.createElement('tr');
@@ -69,42 +69,71 @@ btMostrarTabela.addEventListener('click', function () {
 btFiltro.addEventListener('click', function () {
     let raca = inBuscarRaca.value;
     let stringRaca = "";
+    
 
-    let inicioLactacao = new Date(inAnoInicioLactacao.value + "T00.00.00",);
-    let dataConvertida = inicioLactacao.toLocaleDateString("pt-BR")
-
-    console.log(inicioLactacao)
-
-
-
-    let stringAnoLactacao = "";
+    const inicioLactacao = new Date(inAnoInicioLactacao.value + "T00:00:00");
+    let dia = String(inicioLactacao.getDate()).padStart(2, "0");
+    let mes = String(inicioLactacao.getMonth()+1).padStart(2, "0");
+    let ano = String(inicioLactacao.getFullYear());
+    let dataLactacaoFormatada = dia + "/" + mes + "/" + ano;
+    
 
 
     // fazer verificação pros tres campus
-  //  if (inBuscarRaca.value == "" || inAnoInicioLactacao.value == "" || inVolumeTotalProduzido.value == "") {
- //       outSaida.innerHTML = "Insira valores em todos os campus para poder filtrar";
- //   } else {
 
+    if (inAnoInicioLactacao.value == "" && inVolumeTotalProduzido.value == "") {
 
-      //  for (let i = 0; i < vetRaca.length; i++) {
-        //    if (vetRaca[i].toUpperCase().includes(raca.toUpperCase())) {
-      //          stringRaca += vetRaca[i] + ", ";
-       //     }
-     //   }
+        for (let i = 0; i < vetRaca.length; i++) {
+            if (vetRaca[i].toUpperCase().includes(raca.toUpperCase())) {
+                stringRaca += vetRaca[i] + ", ";
+            }
+        }
+        outSaida.innerHTML = stringRaca.slice(0, -2) + "<br>"
 
+    } else if (inBuscarRaca.value == "" && inVolumeTotalProduzido.value == "") {
+
+        let stringAnoLactacao = "";
 
         for (let i = 0; i < vetDataInicio.length; i++) {
 
-            if (vetDataInicio[i] >= dataConvertida) {
+            let dataVetor = new Date(vetDataInicio[i]);
+            let dia = String(dataVetor.getDate()).padStart(2, "0");
+            let mes = String(dataVetor.getMonth()+1).padStart(2, "0");
+            let ano = String(dataVetor.getFullYear());
+            let dataVetorString = dia + "/" + mes + "/" + ano;
+
+            if (dataVetorString <= dataLactacaoFormatada) {
 
                 stringAnoLactacao += vetDataInicio[i] + "<br>";
             }
-
-
         }
+        outSaida.innerHTML = stringAnoLactacao;
 
-        outSaida.innerHTML = stringRaca.slice(0, -2) + "<br>" + stringAnoLactacao;
-  //  }
+
+
+
+    } else if (inBuscarRaca.value == "" && inAnoInicioLactacao.value == "") {
+        alert("aaa")
+
+        // fazer essa parte de calculo
+
+    }else {
+
+        outSaida.innerHTML = stringRaca.slice(0, -2) + "<br>" + stringAnoLactacao
+
+//filtro por “Volume Total Produzido”, em que o usuário pode digitar o valor mínimo, o valor máximo ou ambos, e a listagem de vacas é atualizada,
+//  mostrando apenas os animais que apresentaram um total produzido dentro da faixa de valores indicada (baseado no dado calculado de Total Produzido).
+
+
+
+    }
+
+
+
+
+
+    //alert(producaoTotal)
+
 
 })
 
