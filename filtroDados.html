@@ -6,6 +6,7 @@
     <title>Fazenda Ouro Branco</title>
     <link rel="stylesheet" href="stylesheet/reset.css">
     <link rel="stylesheet" href="stylesheet/style-geral.css">
+    <link rel="stylesheet" href="stylesheet/style-filtro.css">
 </head>
 <body>
     <header>
@@ -22,14 +23,14 @@
         </div>
 
     </header>
-    <center>
-        filtro<input id="inBuscarRaca" type="text">
-        Ano de Início de Lactação: <input type="date" id="inAnoInicioLactacao">
-        Volume Minimo de leite Produzido: <input type="number" id="inVolumeMinimo">
-        Volume Maximo de leite produzido: <input type="number" id="inVolumeMaximo">
-        <input type="button" id="btFiltro" value="Filtrar">
+    <main>
+        <p class="filtro">Filtro: <input id="inBuscarRaca" type="text"></p>
+        <p class="ano">Ano de Início de Lactação: <input type="date" id="inAnoInicioLactacao"></p>
+        <p class="vol-max">Volume Mínimo de Leite Produzido: <input type="number" id="inVolumeMinimo"></p>
+        <p class="vol-min">Volume Máximo de Leite Produzido: <input type="number" id="inVolumeMaximo"></p>
+        <p><input type="button" id="btFiltro" value="Filtrar"></p>
         <p id="outSaida"></p>
-    <center>
+    </main>
     <script src="./backend/DadosFazendaGado.js"></script>
     <script src="./backend/filtro.js"></script>
 
