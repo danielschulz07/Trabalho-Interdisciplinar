@@ -5,74 +5,6 @@ const inVolumeMaximo = document.getElementById("inVolumeMaximo");
 const btFiltro = document.getElementById("btFiltro");
 const outSaida = document.getElementById("outSaida");
 
-const btMostrarTabela = document.getElementById("btMostrarTabela");
-
-
-btMostrarTabela.addEventListener('click', function () {
-
-    if (document.querySelector('table')) {
-        alert('tabela ja criada')
-    } else {
-
-
-
-        //vou ter que criar um verificação para n criar varias tabelas
-
-        const tabela = document.createElement('table');
-        const cabecalho = document.createElement('tr');
-        //: IDAnimal, Raça, Produção média diária, Dias em lactação, Data de início, Total Produzido (calculado)
-        let titulos = ['IDAnimal', 'Raça', 'Produção média diária', 'Dias em lactação', 'Data de início', 'Total Produzido'];
-
-        tabela.appendChild(cabecalho);
-
-        //Esses dados não devem ser armazenados em um vetor fixo, mas deverá ser calculado dinamicamente no sistema.
-
-
-        for (let i = 0; i < titulos.length; i++) {
-            const th = document.createElement('th');
-            th.textContent = titulos[i];
-            cabecalho.appendChild(th);
-        }
-
-        for (let i = 0; i < vetIDAnimal.length; i++) {
-
-            let producaoTotal = vetLitrosPorDia[i] * vetDiasLactacao[i];
-            let producaoMedia = producaoTotal / vetDiasLactacao[i];
-
-            const tr = document.createElement('tr');
-
-            const tdIDRaca = document.createElement('td');
-            tdIDRaca.textContent = vetIDAnimal[i];
-            tr.appendChild(tdIDRaca);
-
-            const tdRaca = document.createElement('td');
-            tdRaca.textContent = vetRaca[i];
-            tr.appendChild(tdRaca);
-
-            const tdProducaoMedia = document.createElement('td');
-            tdProducaoMedia.textContent = producaoMedia.toFixed(1);
-            tr.appendChild(tdProducaoMedia);
-
-            const tdDiasLactacao = document.createElement('td');
-            tdDiasLactacao.textContent = vetDiasLactacao[i];
-            tr.appendChild(tdDiasLactacao);
-
-            const tdDataInicio = document.createElement('td');
-            tdDataInicio.textContent = vetDataInicio[i];
-            tr.appendChild(tdDataInicio);
-
-            const tdTotalProduzido = document.createElement('td');
-            tdTotalProduzido.textContent = producaoTotal.toFixed(1) + "L";
-            tr.appendChild(tdTotalProduzido);
-
-            tabela.appendChild(tr);
-        }
-        document.body.appendChild(tabela);
-    }
-})
-
-
-
 btFiltro.addEventListener('click', function () {
 
     // fazer verificação pros tres campus
@@ -119,8 +51,6 @@ btFiltro.addEventListener('click', function () {
 
 
     outSaida.innerHTML = stringRaca.slice(0, -2) + "<br>" + stringAnoLactacao + stringProducaoTotal;
-
-
 
 })
 
