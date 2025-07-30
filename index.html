@@ -7,20 +7,18 @@
     <link rel="stylesheet" href="./stylesheet/styleTabela.css">
 </head>
 <body>
-
-    <center>
-        Raça da Vaca<input id="inBuscarRaca" type="text">
+<center>
+        filtro<input id="inBuscarRaca" type="text">
         Ano de Início de Lactação: <input type="date" id="inAnoInicioLactacao">
-        Volume Total Produzido: <input type="number" id="inVolumeTotalProduzido">
+        Volume Minimo de leite Produzido: <input type="number" id="inVolumeMinimo">
+        Volume Maximo de leite produzido: <input type="number" id="inVolumeMaximo">
         <input type="button" id="btFiltro" value="Filtrar">
         <p id="outSaida"></p>
-
-
 
         <input type="button" id="btMostrarTabela" value="Mostrar Tabela">
 
     <center>
-    <script src="./backend/descricao.js"></script>
+    <script src="./backend/DadosFazendaGado.js"></script>
     <script src="./backend/index.js"></script>
 </body>
 </html>
