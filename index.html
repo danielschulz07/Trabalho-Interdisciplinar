@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fazenda Ouro Branco</title>
+    <link rel="stylesheet" href="./stylesheet/styleTabela.css">
 </head>
-
 <body>
     <p>
         <button id="btncalcular">Calcular</button>
@@ -16,7 +15,22 @@
     <h3 id="outRelatorio"></h3>
 
     <script src="./backend/DadosFazendaGado.js"> </script>
+    
+<center>
+        filtro<input id="inBuscarRaca" type="text">
+        Ano de Início de Lactação: <input type="date" id="inAnoInicioLactacao">
+        Volume Minimo de leite Produzido: <input type="number" id="inVolumeMinimo">
+        Volume Maximo de leite produzido: <input type="number" id="inVolumeMaximo">
+        <input type="button" id="btFiltro" value="Filtrar">
+        <p id="outSaida"></p>
+
+        <input type="button" id="btMostrarTabela" value="Mostrar Tabela">
+
+    <center>
+    <script src="./backend/DadosFazendaGado.js"></script>
+    <script src="./backend/index.js"></script>
     <script src="./backend/relatorio.js"> </script>
+
 </body>
 
 </html>
