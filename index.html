@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fazenda Leiteira - Controle de Produção</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./stylesheet/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
     <header class="header">
         <div class="header-content">
@@ -67,7 +65,7 @@
                 </div>
                 <div class="filtro-group">
                     <label for="inAnoInicioLactacao">Ano de Início:</label>
-                    <input type="number" id="inAnoInicioLactacao" placeholder="2023" min="2020" max="2025">
+                    <input type="date" id="inAnoInicioLactacao">
                 </div>
                 <div class="filtro-group">
                     <label for="inVolumeMinimo">Volume Mínimo (L):</label>
@@ -99,8 +97,8 @@
             <div class="relatorios-grid">
                 <div class="relatorio-card">
                     <h4>Maior Produtor Geral</h4>
-                    <button id="btncalcular" class="btn-primary">Calcular</button>
-                    <button id="btnRelatorio" class="btn-secondary">Gerar Relatório</button>
+                    <button id="btCalcular" class="btn-primary">Calcular</button>
+                    <button id="btRelatorio" class="btn-secondary">Gerar Relatório</button>
                     <div id="outRelatorio" class="relatorio-resultado"></div>
                 </div>
             </div>
@@ -127,11 +125,12 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="DadosFazendaGado(2).js"></script>
-    <script src="tabela.js"></script>
-    <script src="filtro.js"></script>
-    <script src="relatorio.js"></script>
-    <script src="main.js"></script>
+    <script src="./backend/DadosFazendaGado.js"></script>
+    <script src="./backend/main.js"></script>
+    <script src="./backend/tabela.js"></script>
+    <script src="./backend/filtro.js"></script>
+    <script src="./backend/relatorio.js"></script>
+
 </body>
 
 </html>
