@@ -13,7 +13,7 @@ window.onload = function () { //FUNÇAO QUE CARREGA A TABELA AUTOMATICAMENTE
     }
 
     for (let i = 0; i < vetIDAnimal.length; i++) { //AQUI UM FOR QUE RODA TODA ESTRUTURA DA TABELA
-
+        
         let producaoTotal = vetLitrosPorDia[i] * vetDiasLactacao[i]; // CALCULO DE PRODUCAO TOTAL
         let producaoMedia = producaoTotal / vetDiasLactacao[i]; // CALCULO DE PRODUCAO MEDIA
 
