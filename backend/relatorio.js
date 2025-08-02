@@ -1,5 +1,7 @@
 window.addEventListener('load', function () {
-    const outRelatorioMaiorProducao = document.getElementById("outRelatorioMaiorProducao");
+    const outRelatorioIdVaca = document.getElementById("outRelatorioIdVaca");
+    const outRelatorioRaca = document.getElementById("outRelatorioRaca");
+    const outProducaoTotal = document.getElementById("outProducaoTotal");
     const outRelatorioVolumeRacas = document.getElementById("outRelatorioVolumeRacas");
 
     let maiorNumero = -Number.MAX_VALUE
@@ -13,8 +15,10 @@ window.addEventListener('load', function () {
             indice = i; // indice assumi o i
         }
     }
-    outRelatorioMaiorProducao.innerHTML = "Raça: " + vetRaca[indice] +
-        " | Total Produzido: " + maiorNumero.toFixed(1) + " litros";
+    outRelatorioIdVaca.innerHTML = "ID: " + vetIDAnimal[indice];
+    outRelatorioRaca.innerHTML = "Raça: " + vetRaca[indice];
+    outProducaoTotal.innerHTML = "Produção Total: " + maiorNumero.toFixed(1) + " litros";
+        
 
 
     // Percorrer todas as raças

@@ -44,14 +44,18 @@ body {
 }
 
 .img-logo{
-    width: 160px;
-    margin: 30px;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .logo {
     display: flex;
     align-items: center;
-    
+    gap: 10px;
 }
 
 .logo i {
@@ -285,6 +289,111 @@ body {
     padding-bottom: 10px;
 }
 
+/* Vaca Campeã Card - DESIGN CLEAN E RETANGULAR */
+.vaca-campea-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.vaca-campea-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+.campea-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.campea-header i {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+.campea-header h4 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 0;
+    display: inline;
+}
+
+.campea-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.campea-image {
+    text-align: center;
+}
+
+.raca-image {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.campea-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.campea-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    border-left: 4px solid #4CAF50;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: #666666;
+    font-size: 0.95rem;
+}
+
+.detail-value {
+    font-weight: 600;
+    color: #333333;
+    font-size: 1.05rem;
+}
+
+.total-production {
+    background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+    color: white;
+    border: none;
+    margin-top: 15px;
+    padding: 18px 22px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.total-production .detail-label,
+.total-production .detail-value {
+    color: white;
+}
+
+.highlight {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+}
+
 /* Conteúdo Principal */
 .main-content {
     background: white;
@@ -376,82 +485,3 @@ tr:nth-child(even):hover td {
     padding: 30px 0;
     margin-top: 50px;
 }
-
-/* Animações */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .nav {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .banner-text h2 {
-        font-size: 2rem;
-    }
-    
-    .banner-text p {
-        font-size: 1.1rem;
-    }
-    
-    .banner-stats {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .filtros-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .filtros-actions {
-        justify-content: center;
-    }
-    
-    .table-header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    table {
-        font-size: 0.9rem;
-    }
-    
-    th, td {
-        padding: 12px 8px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo h1 {
-        font-size: 1.4rem;
-    }
-    
-    .banner-text h2 {
-        font-size: 1.6rem;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
-    }
-    
-    .btn-primary, .btn-secondary {
-        padding: 10px 16px;
-        font-size: 0.9rem;
-    }
-}
-
