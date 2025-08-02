@@ -1,69 +1,51 @@
-//window.addEventListener('load', function () {
-
-
-const botao = document.getElementById("botao");
-const outRelatorio = document.getElementById("outRelatorio");
-
-
-botao.addEventListener('click', function () {
-
+window.addEventListener('load', function () {
+    const outRelatorioMaiorProducao = document.getElementById("outRelatorioMaiorProducao");
+    const outRelatorioVolumeRacas = document.getElementById("outRelatorioVolumeRacas");
 
     let maiorNumero = -Number.MAX_VALUE
-    let maiorNumero2 = -Number.MAX_VALUE
     let indice = 0;
-    let stringRelatorioVolume = "";
-    let stringRelatorioVolume2 = "";
-    let stringRelatorioVolume3 = "";
-    let stringRelatorioVolume4 = "";
+    let stringRelatorio = "";
 
-    for (let i = 1; i < vetIDAnimal.length; i++) {
-        let producaoTotal = vetLitrosPorDia[i] * vetDiasLactacao[i];
-
-        if (producaoTotal > maiorNumero) {
-            maiorNumero = producaoTotal; // declarar as variaveis de forma mais clara
-            indice = i;
+    for (let i = 1; i < vetIDAnimal.length; i++) { // esse for percorre todo vetor e ve qual é a vaca que mais produziu leite
+        let producaoTotal = vetLitrosPorDia[i] * vetDiasLactacao[i]; // faz calculo do volume de produçao
+        if (producaoTotal > maiorNumero) { // verifica de produçao =e maior que maior numero
+            maiorNumero = producaoTotal; // maior numero assume producaoTotal
+            indice = i; // indice assumi o i
         }
     }
-    //outRelatorio.innerHTML = "Raça: " + vetRaca[indice] +
-       // " | Total Produzido (litros): " + maiorNumero.toFixed(2) + "<br>";
+    outRelatorioMaiorProducao.innerHTML = "Raça: " + vetRaca[indice] +
+        " | Total Produzido: " + maiorNumero.toFixed(1) + " litros";
 
 
-
+    // Percorrer todas as raças
     for (let i = 0; i < vetRaca.length; i++) {
+        let racaAtual = vetRaca[i].toUpperCase();
+        let jaFoiProcessada = false;// Variável para verificar se essa raça já foi tratada antes
 
-        if (vetRaca[i].toUpperCase().includes("gir".toUpperCase())) {
-            let producaoTotal = vetLitrosPorDia[i] * vetDiasLactacao[i];
-            
-
-            if (producaoTotal > maiorNumero2) {
-                maiorNumero2 = producaoTotal;
-                indice = i;   
-            }
-            stringRelatorioVolume = vetIDAnimal[indice] + vetRaca[i] + maiorNumero2.toFixed(1) + "<br>"
-        }
         
+        for (let j = 0; j < i; j++) {
+            if (vetRaca[j].toUpperCase() === racaAtual) {
+                jaFoiProcessada = true;// Verifica se essa raça já foi processada antes
+            }
+        }
 
-    
+        if (jaFoiProcessada) { //se for true ele pula e vai pra proxima raça
+            continue; // pula pra próxima raça
+        }
+
+        let maiorProducao = 0;
+        let indiceMaior = -1;
+        for (let k = 0; k < vetRaca.length; k++) { // esse for faz o calculo de produçao de leite
+            if (vetRaca[k].toUpperCase() === racaAtual) {
+                let producao = vetLitrosPorDia[k] * vetDiasLactacao[k];
+                if (producao > maiorProducao) {
+                    maiorProducao = producao;
+                    indiceMaior = k;
+                }
+            }
+        }
+        stringRelatorio += "Raça: " + vetRaca[indiceMaior] +
+            " | Total Produzido: " + maiorProducao.toFixed(1) + " litros<br>";
     }
-
-
-
-
-
-
-
-
-
-
-    outRelatorio.innerHTML = stringRelatorioVolume + "<br>" + stringRelatorioVolume2 + "<br>" + stringRelatorioVolume3 + "<br>" + stringRelatorioVolume4;
-
-
-    //})
+    outRelatorioVolumeRacas.innerHTML = stringRelatorio;
 })
-
-
-
-
-//Desafio: Tente desenvolver um relatório que apresente a vaca com maior volume de leite produzido (baseado no dado calculado de Total Produzido) de cada raça.
-
-
