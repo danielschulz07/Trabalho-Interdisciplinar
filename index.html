@@ -35,26 +35,8 @@
                 <h2>Sistema de Controle de Produção Leiteira</h2>
                 <p>Acompanhe o desempenho individual de cada animal e otimize a produção da sua fazenda</p>
             </div>
-            <div class="banner-stats">
-                <div class="stat-card">
-                    <i class="fas fa-cow"></i>
-                    <span class="stat-number" id="totalAnimais">100</span>
-                    <span class="stat-label">Animais</span>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-tint"></i>
-                    <span class="stat-number" id="producaoTotal">0</span>
-                    <span class="stat-label">Litros/Dia</span>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-calendar"></i>
-                    <span class="stat-number" id="mediaLactacao">0</span>
-                    <span class="stat-label">Dias Médios</span>
-                </div>
-            </div>
         </div>
     </section>
-
     <!-- Seção de Filtros (inicialmente oculta) -->
     <section id="filtrosSection" class="filtros-section hidden">
         <div class="container">
@@ -90,7 +72,6 @@
             <div id="outSaida" class="filtro-resultado"></div>
         </div>
     </section>
-
     <!-- Seção de Relatórios (inicialmente oculta) -->
     <section id="relatoriosSection" class="relatorios-section hidden">
         <div class="container">
@@ -118,7 +99,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="relatorios-grid">
                 <div class="relatorio-card">
                     <h4>Maior Produção por Raça</h4>
@@ -128,20 +108,15 @@
             </div>
         </div>
     </section>
-
     <!-- Seção Principal com Tabela -->
     <main id="main" class="main-content">
         <div class="container">
             <div class="table-header">
                 <h3><i class="fas fa-table"></i> Controle de Animais</h3>
-                <div class="table-info">
-                    <span id="totalRegistros">Carregando...</span>
-                </div>
             </div>
             <!-- A tabela será inserida aqui pelo JavaScript -->
         </div>
     </main>
-
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Fazenda Ouro Branco - Sistema de Controle Leiteiro</p>
@@ -154,7 +129,5 @@
     <script src="./backend/tabela.js"></script>
     <script src="./backend/filtro.js"></script>
     <script src="./backend/relatorio.js"></script>
-
 </body>
-
 </html>

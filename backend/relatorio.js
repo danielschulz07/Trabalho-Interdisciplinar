@@ -15,18 +15,12 @@ window.addEventListener('load', function () {
             indice = i; // indice assumi o i
         }
     }
-    outRelatorioIdVaca.innerHTML = "ID: " + vetIDAnimal[indice];
-    outRelatorioRaca.innerHTML = "Raça: " + vetRaca[indice];
-    outProducaoTotal.innerHTML = "Produção Total: " + maiorNumero.toFixed(1) + " litros";
-        
-
 
     // Percorrer todas as raças
     for (let i = 0; i < vetRaca.length; i++) {
         let racaAtual = vetRaca[i].toUpperCase();
         let jaFoiProcessada = false;// Variável para verificar se essa raça já foi tratada antes
 
-        
         for (let j = 0; j < i; j++) {
             if (vetRaca[j].toUpperCase() === racaAtual) {
                 jaFoiProcessada = true;// Verifica se essa raça já foi processada antes
@@ -51,5 +45,8 @@ window.addEventListener('load', function () {
         stringRelatorio += "Raça: " + vetRaca[indiceMaior] +
             " | Total Produzido: " + maiorProducao.toFixed(1) + " litros<br>";
     }
+    outRelatorioIdVaca.innerHTML = "ID: " + vetIDAnimal[indice];
+    outRelatorioRaca.innerHTML = "Raça: " + vetRaca[indice];
+    outProducaoTotal.innerHTML = "Produção Total: " + maiorNumero.toFixed(1) + " litros";
     outRelatorioVolumeRacas.innerHTML = stringRelatorio;
 })
